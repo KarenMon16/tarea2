@@ -12,4 +12,6 @@ public interface IUserRepository {
      List<UserDTO> getAllUsers();
      int deleteUser(int id);
     int save(UserDTO userDTO);
+    int update(UserDTO userDTO);
+
 }

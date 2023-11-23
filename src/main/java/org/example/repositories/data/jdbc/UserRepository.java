@@ -1,12 +1,9 @@
 package org.example.repositories.data.jdbc;
 import org.example.dto.UserDTO;
-import org.example.repositories.data.mapper.UserMapper;
+import org.example.repositories.data.mapper.UserRowMapper;
 import org.example.repositories.data.interfaces.IUserRepository;
-import org.example.services.impl.UserService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +23,7 @@ public class UserRepository implements IUserRepository {
                 FROM users
                 WHERE id=?
                 """;
-        return jdbcTemplate.query(sql, new UserMapper(), id)
+        return jdbcTemplate.query(sql, new UserRowMapper(), id)
                 .stream()
                 .findFirst();
     }
@@ -38,7 +35,7 @@ public class UserRepository implements IUserRepository {
                 FROM users
                 """;
         System.out.println(sql);
-        return jdbcTemplate.query(sql, new UserMapper());
+        return jdbcTemplate.query(sql, new UserRowMapper());
     }
 
     public int deleteUser(int id){
@@ -57,4 +54,15 @@ public class UserRepository implements IUserRepository {
                 """;
         return jdbcTemplate.update(sql, userDTO.getUsername(),userDTO.getPassword(),userDTO.getEmail());
     }
+
+    public int update(UserDTO userDTO) {
+        System.out.println(userDTO.getUsername());
+        var sql = """
+                UPDATE users 
+                SET username=?, password=?, email=? 
+                WHERE id=?
+                """;
+        return jdbcTemplate.update(sql,userDTO.getUsername(),userDTO.getPassword(),userDTO.getEmail(), userDTO.getId());
+    }
+
 }
