@@ -13,10 +13,11 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 public class UserDTO {
 
-    private static Integer id;
-    private static String username;
-    private static String upassword;
-    private static String email;
-    private static Timestamp createdAt;
+    private  Integer id;
+    private  String username;
+    private  String password;
+    private  String email;
+    private  String createdAt;
+
 
 }

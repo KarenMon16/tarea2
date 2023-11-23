@@ -35,13 +35,15 @@ public class UserController {
     }
 
 
+
+
     @PostMapping
-    public ResponseEntity<Void> createUser( final UserDTO dto) throws URISyntaxException {
+    public ResponseEntity<Void> create(@RequestBody  final UserDTO dto) throws URISyntaxException {
         if (dto.getId() != null) {
-            throw new IllegalArgumentException("I new country cannot already have an id.");
+            throw new IllegalArgumentException("That users already exists");
         }
         System.out.println("Adding?");
-        userService.save(dto);
+        userService.create(dto);
 
         return ResponseEntity
                 .created(null)

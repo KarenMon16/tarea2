@@ -30,12 +30,14 @@ public class UserRepository implements IUserRepository {
                 .stream()
                 .findFirst();
     }
-
+    @Override
     public List<UserDTO> getAllUsers(){
+        System.out.println("Llego allusers");
         var sql = """
                 SELECT *
                 FROM users
                 """;
+        System.out.println(sql);
         return jdbcTemplate.query(sql, new UserMapper());
     }
 
@@ -49,9 +51,10 @@ public class UserRepository implements IUserRepository {
     }
 
     public int save(UserDTO userDTO) {
+        System.out.println(userDTO.getUsername());
         var sql = """
-                INSERT INTO users (id, username, password, email, createdAt) VALUES (nextval('my_sequence'), ?, ?,?,?)
+                INSERT INTO users (id, username, password, email) VALUES (nextval('users_sequence'), ?, ?,?)
                 """;
-        return jdbcTemplate.update(sql);
+        return jdbcTemplate.update(sql, userDTO.getUsername(),userDTO.getPassword(),userDTO.getEmail());
     }
 }

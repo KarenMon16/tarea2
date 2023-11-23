@@ -8,12 +8,14 @@ import java.sql.SQLException;
 public class UserMapper implements RowMapper<UserDTO> {
     @Override
     public UserDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+        System.out.println("-----------------------------------------");
+        System.out.println(rs.getString("createdAt"));
         return new UserDTO(
                 rs.getInt("id"),
                 rs.getString("username"),
-                rs.getString("upassword"),
+                rs.getString("password"),
                 rs.getString("email"),
-                rs.getTimestamp("createdAt")
+                rs.getString("createdAt")
         );
     }
 }

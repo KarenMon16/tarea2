@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 @Table (name = "users")
 public class User {
     @Id
-    @SequenceGenerator(name = "user_sequence",allocationSize = 1)
+    @SequenceGenerator(name = "users_sequence",allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "user_sequence")
     private Integer id;
     private String username;

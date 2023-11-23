@@ -20,10 +20,8 @@ public class UserService implements IUserService {
     public Optional<UserDTO> getUser(int id) {return userRepository.getUser(id);}
     public List<UserDTO> listAllUsers(){return userRepository.getAllUsers();}
     public void deleteUser(int id) {};
-
-
     @Override
-    public int save(UserDTO userDTO) {
+    public int create(UserDTO userDTO) {
         return userRepository.save(userDTO);
     }
 }
