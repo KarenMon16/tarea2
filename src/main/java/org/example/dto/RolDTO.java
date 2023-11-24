@@ -1,11 +1,15 @@
 package org.example.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class rolDTO {
+@NoArgsConstructor
+@AllArgsConstructor
+public class RolDTO {
     private Integer id;
     private String name;
 }

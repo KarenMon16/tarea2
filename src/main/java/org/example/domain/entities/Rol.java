@@ -2,7 +2,11 @@ package org.example.domain.entities;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Entity
 @Table(name="rol")
 public class Rol {
@@ -11,4 +15,5 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "rol_sequence")
     private Integer id;
     private String name;
+
 }

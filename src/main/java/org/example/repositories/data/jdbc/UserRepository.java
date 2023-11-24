@@ -16,7 +16,6 @@ public class UserRepository implements IUserRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-
     public Optional<UserDTO> getUser(int id) {
         var sql = """
                 SELECT *
@@ -29,7 +28,6 @@ public class UserRepository implements IUserRepository {
     }
     @Override
     public List<UserDTO> getAllUsers(){
-        System.out.println("Llego allusers");
         var sql = """
                 SELECT *
                 FROM users

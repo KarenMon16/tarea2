@@ -15,6 +15,11 @@ public class User {
     @SequenceGenerator(name = "users_sequence",allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "user_sequence")
     private Integer id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserDetail detail;
+
     private String username;
     private String password;
     private String email;

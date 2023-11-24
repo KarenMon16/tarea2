@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class userRolDTO {
+public class UserRolDTO {
     private Integer id;
     private boolean active;
     private Timestamp createdAt;
