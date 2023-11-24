@@ -8,5 +8,4 @@ create table users (
 );
 create sequence rol_sequence as integer increment 1;
 
-insert
 

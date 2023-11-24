@@ -17,8 +17,12 @@ public class User {
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private UserDetail detail;
+    @JoinColumn(name = "userId")
+    private UserDetail userDetail;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId")
+    private UserRol userRol;
 
     private String username;
     private String password;

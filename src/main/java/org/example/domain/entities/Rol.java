@@ -16,4 +16,7 @@ public class Rol {
     private Integer id;
     private String name;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id")
+    private UserRol userRol;
 }

@@ -1,10 +1,8 @@
 package org.example.repositories.data.jdbc;
 
 import org.example.dto.RolDTO;
-import org.example.dto.UserDTO;
 import org.example.repositories.data.interfaces.IRolRepository;
 import org.example.repositories.data.mapper.RolRowMapper;
-import org.example.repositories.data.mapper.UserRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
