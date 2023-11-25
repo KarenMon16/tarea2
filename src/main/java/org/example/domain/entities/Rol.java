@@ -15,8 +15,4 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "rol_sequence")
     private Integer id;
     private String name;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
-    private UserRol userRol;
 }

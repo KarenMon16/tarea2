@@ -17,7 +17,7 @@ public class RolRepository implements IRolRepository {
     public Optional<RolDTO> get(int id) {
         var sql = """
                 SELECT *
-                FROM users
+                FROM rol
                 WHERE id=?
                 """;
         return jdbcTemplate.query(sql, new RolRowMapper(), id)
@@ -53,9 +53,9 @@ public class RolRepository implements IRolRepository {
         System.out.println(rolDTO.getName());
         var sql = """
                 UPDATE rol 
-                SET username=? 
+                SET name=? 
                 WHERE id=?
                 """;
-        return jdbcTemplate.update(sql,rolDTO.getName());
+        return jdbcTemplate.update(sql,rolDTO.getName(),rolDTO.getId());
     }
 }

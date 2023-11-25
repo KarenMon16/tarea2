@@ -16,13 +16,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "user_sequence")
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
-    private UserDetail userDetail;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
-    private UserRol userRol;
+/*
+    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private UserDetail userDetail;*/
 
     private String username;
     private String password;
