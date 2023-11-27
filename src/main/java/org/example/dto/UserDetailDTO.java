@@ -13,10 +13,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserDetailDTO {
 
-    private long id;
+    private int id;
     private String firstName;
     private String lastName;
     private Integer age;
     private Date birthday;
-    private Long userId;
+    private int userId;
 }
